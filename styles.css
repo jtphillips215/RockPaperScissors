@@ -1,29 +1,35 @@
+body {
+  font-family: 'Press Start 2P';
+}
+
 header {
   display: flex;
   justify-content: center;
-  background-color: burlywood;
+  background-color: #e5e5e5;
+  color: #dd2020;
 }
 
 .scorecard {
   display: flex;
   justify-content: center;
-  background-color: cyan;
+  background-color: #a5a2a2;
 }
 
 .directions {
   display: flex;
   justify-content: center;
-  background-color: darkseagreen;
+  background-color: #e5e5e5;
+
 }
 
 .choices {
   display: flex;
   justify-content: space-evenly;
-  background-color: hotpink;
+  background-color: #a5a2a5;
 }
 
 footer {
   display: flex;
   justify-content: center;
-  background-color: lightgray;
+  background-color: #e5e5e5;
 }
