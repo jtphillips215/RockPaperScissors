@@ -1,4 +1,29 @@
 header {
   display: flex;
   justify-content: center;
+  background-color: burlywood;
+}
+
+.scorecard {
+  display: flex;
+  justify-content: center;
+  background-color: cyan;
+}
+
+.directions {
+  display: flex;
+  justify-content: center;
+  background-color: darkseagreen;
+}
+
+.choices {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: hotpink;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: lightgray;
 }
