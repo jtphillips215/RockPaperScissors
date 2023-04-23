@@ -3,14 +3,12 @@
 // get computer choice randomly chooses rock, paper, or scissors for the computer player
 function getComputerChoice() {
   let ranNum = Math.floor(Math.random() * 3);
-  
+
   if (ranNum == 0) {
     return "rock";
-  }
-  else if (ranNum == 1) {
+  } else if (ranNum == 1) {
     return "paper";
-  }
-  else {
+  } else {
     return "scissors";
   }
 }
@@ -24,35 +22,27 @@ function getPlayerChoice() {
 // play round runs a round of rock paper scissors
 function playRound(computerChoice, playerChoice) {
   if (computerChoice == "rock") {
-    if(playerChoice.toLowerCase() == "rock") {
+    if (playerChoice.toLowerCase() == "rock") {
       return 0;
-    }
-    else if (playerChoice.toLowerCase() == "paper") {
+    } else if (playerChoice.toLowerCase() == "paper") {
       return 1;
-    }
-    else {
+    } else {
       return -1;
     }
-  }
-  else if (computerChoice == "paper") {
-    if(playerChoice.toLowerCase() == "rock") {
+  } else if (computerChoice == "paper") {
+    if (playerChoice.toLowerCase() == "rock") {
       return -1;
-    }
-    else if (playerChoice.toLowerCase() == "paper") {
+    } else if (playerChoice.toLowerCase() == "paper") {
       return 0;
-    }
-    else {
+    } else {
       return 1;
     }
-  }
-  else {
-    if(playerChoice.toLowerCase() == "rock") {
+  } else {
+    if (playerChoice.toLowerCase() == "rock") {
       return 1;
-    }
-    else if (playerChoice.toLowerCase() == "paper") {
+    } else if (playerChoice.toLowerCase() == "paper") {
       return -1;
-    }
-    else {
+    } else {
       return 0;
     }
   }
@@ -61,24 +51,24 @@ function playRound(computerChoice, playerChoice) {
 // game runs the game by calling the required functions and keeping score
 function game() {
   let score = 0;
-  let round = 1
+  let round = 1;
 
   for (let i = 0; i < 5; i++) {
     let computerChoice = getComputerChoice();
     let playerChoice = getPlayerChoice();
     score += playRound(computerChoice, playerChoice);
-    console.log(`Round: ${round}, Computer choice: ${computerChoice}, Player choice: ${playerChoice}`);
+    console.log(
+      `Round: ${round}, Computer choice: ${computerChoice}, Player choice: ${playerChoice}`
+    );
     round++;
   }
 
-  if(score == 0) {
-    console.log("It's a draw!")
-  }
-  else if (score > 0) {
-    console.log("You Win!")
-  }
-  else {
-    console.log("Computer Wins!")
+  if (score == 0) {
+    console.log("It's a draw!");
+  } else if (score > 0) {
+    console.log("You Win!");
+  } else {
+    console.log("Computer Wins!");
   }
 }
 
