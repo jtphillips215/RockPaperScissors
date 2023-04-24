@@ -28,6 +28,22 @@ header {
   background-color: #a5a2a5;
 }
 
+button {
+  font-family: 'Press Start 2P';
+  background-color: white;
+  color: #dd2020;
+  font-size: larger;
+  border-radius: 8px;
+  border: 2px solid #dd2020;
+  transition: 0.4s;
+}
+
+button:hover {
+  background-color: #dd2020;
+  color: white;
+  border: 2px solid white;
+}
+
 footer {
   display: flex;
   justify-content: center;
