@@ -20,48 +20,42 @@ function getComputerChoice() {
 // update ui updates the user interface with updated information from the round
 function updateUI(computerChoice, playerChoice) {
   const lblPlayerChoice = document.querySelector("#player-choice");
-  const lblPlayerScore = document.querySelector("#");
+  const lblPlayerScore = document.querySelector("#player-score");
   const lblComputerChoice = document.querySelector("#computer-choice");
-  const lblComputerScore = document.querySelector("#");
+  const lblComputerScore = document.querySelector("#computer-score");
   lblPlayerChoice.textContent = playerChoice;
+  lblPlayerScore.textContent = playerScore;
   lblComputerChoice.textContent = computerChoice;
+  lblComputerScore.textContent = computerScore;
 }
 
-// play round runs a round of rock paper scissors
+// play round runs a round of rock paper scissors and updates scores
 function playRound(computerChoice, playerChoice) {
-  if (computerChoice == "rock") {
-    if (playerChoice.toLowerCase() == "rock") {
-      return 0;
-    } else if (playerChoice.toLowerCase() == "paper") {
-      return 1;
-    } else {
-      return -1;
-    }
-  } else if (computerChoice == "paper") {
-    if (playerChoice.toLowerCase() == "rock") {
-      return -1;
-    } else if (playerChoice.toLowerCase() == "paper") {
-      return 0;
-    } else {
-      return 1;
-    }
+  if (playerChoice == computerChoice) {
+    console.log("Draw, score:", playerScore, computerScore);
+    return;
+  } else if (
+    (computerChoice == "scissors" && playerChoice == "rock") ||
+    (computerChoice == "paper" && playerChoice == "scissors") ||
+    (computerChoice == "rock" && playerChoice == "paper")
+  ) {
+    playerScore += 1;
+    console.log("Player win, score:", playerScore, computerScore);
+    return;
   } else {
-    if (playerChoice.toLowerCase() == "rock") {
-      return 1;
-    } else if (playerChoice.toLowerCase() == "paper") {
-      return -1;
-    } else {
-      return 0;
-    }
+    computerScore += 1;
+    console.log("Computer Win, score:", playerScore, computerScore);
+    return;
   }
 }
 
-//event handlers for player choice
+//event handlers for player choice, handlers call functions to run game of rps
 const rock = document.querySelector("#rock");
 rock.addEventListener("click", () => {
   const playerChoice = "rock";
   const computerChoice = getComputerChoice();
   console.log("pc=", playerChoice, "cc=", computerChoice);
+  playRound(computerChoice, playerChoice);
   updateUI(computerChoice, playerChoice);
 });
 
@@ -70,6 +64,7 @@ paper.addEventListener("click", () => {
   const playerChoice = "paper";
   const computerChoice = getComputerChoice();
   console.log("pc=", playerChoice, "cc=", computerChoice);
+  playRound(computerChoice, playerChoice);
   updateUI(computerChoice, playerChoice);
 });
 
@@ -78,6 +73,7 @@ scissors.addEventListener("click", () => {
   const playerChoice = "scissors";
   const computerChoice = getComputerChoice();
   console.log("pc=", playerChoice, "cc=", computerChoice);
+  playRound(computerChoice, playerChoice);
   updateUI(computerChoice, playerChoice);
 });
 
