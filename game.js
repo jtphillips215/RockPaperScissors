@@ -54,14 +54,35 @@ function playRound(computerChoice, playerChoice) {
   }
 }
 
-// event handlers for player choice, handlers call functions to run game of rps
+// game reset resets game to starting values for a new game
+function gameReset() {
+  playerScore = 0;
+  computerScore = 0;
+}
+
+// check for winner
+function checkWinner(computerChoice, playerChoice) {
+  if (playerScore == 5) {
+    gameReset();
+  } else if (computerScore == 5) {
+    gameReset();
+  }
+}
+
+// round upkeep calls all functions needed to control game flow
+function roundUpkeep(computerChoice, playerChoice) {
+  playRound(computerChoice, playerChoice);
+  updateUI(computerChoice, playerChoice);
+  checkWinner(computerChoice, playerChoice);
+}
+
+// event handlers for player choice, calls function to run game
 const rock = document.querySelector("#rock");
 rock.addEventListener("click", () => {
   const playerChoice = "rock";
   const computerChoice = getComputerChoice();
   console.log(`UI- pc=${playerChoice}, cc=${computerChoice}`);
-  playRound(computerChoice, playerChoice);
-  updateUI(computerChoice, playerChoice);
+  roundUpkeep(computerChoice, playerChoice);
 });
 
 const paper = document.querySelector("#paper");
@@ -69,8 +90,7 @@ paper.addEventListener("click", () => {
   const playerChoice = "paper";
   const computerChoice = getComputerChoice();
   console.log(`UI- pc=${playerChoice}, cc=${computerChoice}`);
-  playRound(computerChoice, playerChoice);
-  updateUI(computerChoice, playerChoice);
+  roundUpkeep(computerChoice, playerChoice);
 });
 
 const scissors = document.querySelector("#scissors");
@@ -78,6 +98,5 @@ scissors.addEventListener("click", () => {
   const playerChoice = "scissors";
   const computerChoice = getComputerChoice();
   console.log(`UI- pc=${playerChoice}, cc=${computerChoice}`);
-  playRound(computerChoice, playerChoice);
-  updateUI(computerChoice, playerChoice);
+  roundUpkeep(computerChoice, playerChoice);
 });
