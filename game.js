@@ -27,12 +27,15 @@ function updateUI(computerChoice, playerChoice) {
   lblPlayerScore.textContent = playerScore;
   lblComputerChoice.textContent = computerChoice;
   lblComputerScore.textContent = computerScore;
+  console.log(
+    `Refresh- pc=${playerChoice}, cc=${computerChoice}, score: ${playerScore} - ${computerScore}`
+  );
 }
 
 // play round runs a round of rock paper scissors and updates scores
 function playRound(computerChoice, playerChoice) {
   if (playerChoice == computerChoice) {
-    console.log("Draw, score:", playerScore, computerScore);
+    console.log(`Logic- Draw, score: ${playerScore} - ${computerScore}`);
     return;
   } else if (
     (computerChoice == "scissors" && playerChoice == "rock") ||
@@ -40,21 +43,23 @@ function playRound(computerChoice, playerChoice) {
     (computerChoice == "rock" && playerChoice == "paper")
   ) {
     playerScore += 1;
-    console.log("Player win, score:", playerScore, computerScore);
+    console.log(`Logic- Player win, score: ${playerScore} - ${computerScore}`);
     return;
   } else {
     computerScore += 1;
-    console.log("Computer Win, score:", playerScore, computerScore);
+    console.log(
+      `Logic- Computer win, score: ${playerScore} - ${computerScore}`
+    );
     return;
   }
 }
 
-//event handlers for player choice, handlers call functions to run game of rps
+// event handlers for player choice, handlers call functions to run game of rps
 const rock = document.querySelector("#rock");
 rock.addEventListener("click", () => {
   const playerChoice = "rock";
   const computerChoice = getComputerChoice();
-  console.log("pc=", playerChoice, "cc=", computerChoice);
+  console.log(`UI- pc=${playerChoice}, cc=${computerChoice}`);
   playRound(computerChoice, playerChoice);
   updateUI(computerChoice, playerChoice);
 });
@@ -63,7 +68,7 @@ const paper = document.querySelector("#paper");
 paper.addEventListener("click", () => {
   const playerChoice = "paper";
   const computerChoice = getComputerChoice();
-  console.log("pc=", playerChoice, "cc=", computerChoice);
+  console.log(`UI- pc=${playerChoice}, cc=${computerChoice}`);
   playRound(computerChoice, playerChoice);
   updateUI(computerChoice, playerChoice);
 });
@@ -72,7 +77,7 @@ const scissors = document.querySelector("#scissors");
 scissors.addEventListener("click", () => {
   const playerChoice = "scissors";
   const computerChoice = getComputerChoice();
-  console.log("pc=", playerChoice, "cc=", computerChoice);
+  console.log(`UI- pc=${playerChoice}, cc=${computerChoice}`);
   playRound(computerChoice, playerChoice);
   updateUI(computerChoice, playerChoice);
 });
