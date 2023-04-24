@@ -71,6 +71,16 @@ button:hover {
   border: 3px solid white;
 }
 
+.infobox {
+  display: flex;
+  justify-content: center;
+}
+
+#info-message {
+  font-size: larger;
+  color:#dd2020;
+}
+
 footer {
   display: flex;
   flex: auto;

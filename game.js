@@ -1,8 +1,16 @@
 "use strict";
 
-// global variables for score
+// global variables for score and ui elements
 let playerScore = 0;
 let computerScore = 0;
+const lblPlayerChoice = document.querySelector("#player-choice");
+const lblPlayerScore = document.querySelector("#player-score");
+const lblComputerChoice = document.querySelector("#computer-choice");
+const lblComputerScore = document.querySelector("#computer-score");
+const lblInfo = document.querySelector("#info-message");
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissors = document.querySelector("#scissors");
 
 // get computer choice randomly chooses rock, paper, or scissors for the computer player
 function getComputerChoice() {
@@ -19,10 +27,6 @@ function getComputerChoice() {
 
 // update ui updates the user interface with updated information from the round
 function updateUI(computerChoice, playerChoice) {
-  const lblPlayerChoice = document.querySelector("#player-choice");
-  const lblPlayerScore = document.querySelector("#player-score");
-  const lblComputerChoice = document.querySelector("#computer-choice");
-  const lblComputerScore = document.querySelector("#computer-score");
   lblPlayerChoice.textContent = playerChoice;
   lblPlayerScore.textContent = playerScore;
   lblComputerChoice.textContent = computerChoice;
@@ -36,6 +40,7 @@ function updateUI(computerChoice, playerChoice) {
 function playRound(computerChoice, playerChoice) {
   if (playerChoice == computerChoice) {
     console.log(`Logic- Draw, score: ${playerScore} - ${computerScore}`);
+    lblInfo.textContent = "Draw!";
     return;
   } else if (
     (computerChoice == "scissors" && playerChoice == "rock") ||
@@ -44,12 +49,14 @@ function playRound(computerChoice, playerChoice) {
   ) {
     playerScore += 1;
     console.log(`Logic- Player win, score: ${playerScore} - ${computerScore}`);
+    lblInfo.textContent = "Round Win!";
     return;
   } else {
     computerScore += 1;
     console.log(
       `Logic- Computer win, score: ${playerScore} - ${computerScore}`
     );
+    lblInfo.textContent = "Round loss.";
     return;
   }
 }
@@ -64,8 +71,10 @@ function gameReset() {
 function checkWinner(computerChoice, playerChoice) {
   if (playerScore == 5) {
     gameReset();
+    lblInfo.textContent = `Winner winner chicken dinner! Press any button to start a new game.`;
   } else if (computerScore == 5) {
     gameReset();
+    lblInfo.textContent = `Better luck next time. Press any button to start a new game.`;
   }
 }
 
@@ -77,24 +86,21 @@ function roundUpkeep(computerChoice, playerChoice) {
 }
 
 // event handlers for player choice, calls function to run game
-const rock = document.querySelector("#rock");
-rock.addEventListener("click", () => {
+btnRock.addEventListener("click", () => {
   const playerChoice = "rock";
   const computerChoice = getComputerChoice();
   console.log(`UI- pc=${playerChoice}, cc=${computerChoice}`);
   roundUpkeep(computerChoice, playerChoice);
 });
 
-const paper = document.querySelector("#paper");
-paper.addEventListener("click", () => {
+btnPaper.addEventListener("click", () => {
   const playerChoice = "paper";
   const computerChoice = getComputerChoice();
   console.log(`UI- pc=${playerChoice}, cc=${computerChoice}`);
   roundUpkeep(computerChoice, playerChoice);
 });
 
-const scissors = document.querySelector("#scissors");
-scissors.addEventListener("click", () => {
+btnScissors.addEventListener("click", () => {
   const playerChoice = "scissors";
   const computerChoice = getComputerChoice();
   console.log(`UI- pc=${playerChoice}, cc=${computerChoice}`);
