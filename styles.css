@@ -3,6 +3,7 @@ body {
   flex-direction: column;
   font-family: 'Press Start 2P';
   background-color: #e5e5e5;
+  margin: 0;
 }
 
 header {
@@ -10,6 +11,7 @@ header {
   flex: auto;
   justify-content: center;
   color: #dd2020;
+  padding: 1em 0;
 }
 
 .scorecard {
@@ -29,7 +31,9 @@ header {
   display: flex;
   flex: auto;
   justify-content: space-evenly;
+  align-items: center;
   background-color: #a5a2a5;
+  padding: 1.5em 0;
 }
 
 button {
@@ -57,7 +61,9 @@ footer {
   bottom: 0%;
   left: 0%;
   width: 100%;
+  padding: 1em 0;
   justify-content: center;
+  align-items: center;
   background-color: black;
   color: white;
 }
