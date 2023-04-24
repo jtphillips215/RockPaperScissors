@@ -13,12 +13,7 @@ function getComputerChoice() {
   }
 }
 
-// get player choice allows the player to input a choice
-function getPlayerChoice() {
-  let playerChoice = prompt("Rock, Paper, or Scissors?");
-  return playerChoice;
-}
-
+/*
 // play round runs a round of rock paper scissors
 function playRound(computerChoice, playerChoice) {
   if (computerChoice == "rock") {
@@ -47,7 +42,31 @@ function playRound(computerChoice, playerChoice) {
     }
   }
 }
+*/
 
+//event handlers for player choice
+const rock = document.querySelector("#rock");
+rock.addEventListener("click", () => {
+  const playerChoice = "rock";
+  const computerChoice = getComputerChoice();
+  console.log("pc=", playerChoice, "cc=", computerChoice);
+});
+
+const paper = document.querySelector("#paper");
+paper.addEventListener("click", () => {
+  const playerChoice = "paper";
+  const computerChoice = getComputerChoice();
+  console.log("pc=", playerChoice, "cc=", computerChoice);
+});
+
+const scissors = document.querySelector("#scissors");
+scissors.addEventListener("click", () => {
+  const playerChoice = "scissors";
+  const computerChoice = getComputerChoice();
+  console.log("pc=", playerChoice, "cc=", computerChoice);
+});
+
+/*
 // game runs the game by calling the required functions and keeping score
 function game() {
   let score = 0;
@@ -71,6 +90,7 @@ function game() {
     console.log("Computer Wins!");
   }
 }
+*/
 
 // calling game function to start the game
-game();
+// game();
