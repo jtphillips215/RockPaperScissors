@@ -1,29 +1,33 @@
 body {
+  display: flex;
+  flex-direction: column;
   font-family: 'Press Start 2P';
+  background-color: #e5e5e5;
 }
 
 header {
   display: flex;
+  flex: auto;
   justify-content: center;
-  background-color: #e5e5e5;
   color: #dd2020;
 }
 
 .scorecard {
   display: flex;
+  flex: auto;
   justify-content: center;
   background-color: #a5a2a2;
 }
 
 .directions {
   display: flex;
+  flex: auto;
   justify-content: center;
-  background-color: #e5e5e5;
-
 }
 
 .choices {
   display: flex;
+  flex: auto;
   justify-content: space-evenly;
   background-color: #a5a2a5;
 }
@@ -46,6 +50,12 @@ button:hover {
 
 footer {
   display: flex;
+  flex: auto;
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
   justify-content: center;
-  background-color: #e5e5e5;
+  background-color: black;
+  color: white;
 }
