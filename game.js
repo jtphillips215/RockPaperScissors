@@ -76,32 +76,3 @@ scissors.addEventListener("click", () => {
   playRound(computerChoice, playerChoice);
   updateUI(computerChoice, playerChoice);
 });
-
-/*
-// game runs the game by calling the required functions and keeping score
-function game() {
-  let score = 0;
-  let round = 1;
-
-  for (let i = 0; i < 5; i++) {
-    let computerChoice = getComputerChoice();
-    let playerChoice = getPlayerChoice();
-    score += playRound(computerChoice, playerChoice);
-    console.log(
-      `Round: ${round}, Computer choice: ${computerChoice}, Player choice: ${playerChoice}`
-    );
-    round++;
-  }
-
-  if (score == 0) {
-    console.log("It's a draw!");
-  } else if (score > 0) {
-    console.log("You Win!");
-  } else {
-    console.log("Computer Wins!");
-  }
-}
-*/
-
-// calling game function to start the game
-// game();
