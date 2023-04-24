@@ -1,5 +1,9 @@
 "use strict";
 
+// global variables for score
+let playerScore = 0;
+let computerScore = 0;
+
 // get computer choice randomly chooses rock, paper, or scissors for the computer player
 function getComputerChoice() {
   let ranNum = Math.floor(Math.random() * 3);
@@ -13,7 +17,16 @@ function getComputerChoice() {
   }
 }
 
-/*
+// update ui updates the user interface with updated information from the round
+function updateUI(computerChoice, playerChoice) {
+  const lblPlayerChoice = document.querySelector("#player-choice");
+  const lblPlayerScore = document.querySelector("#");
+  const lblComputerChoice = document.querySelector("#computer-choice");
+  const lblComputerScore = document.querySelector("#");
+  lblPlayerChoice.textContent = playerChoice;
+  lblComputerChoice.textContent = computerChoice;
+}
+
 // play round runs a round of rock paper scissors
 function playRound(computerChoice, playerChoice) {
   if (computerChoice == "rock") {
@@ -42,7 +55,6 @@ function playRound(computerChoice, playerChoice) {
     }
   }
 }
-*/
 
 //event handlers for player choice
 const rock = document.querySelector("#rock");
@@ -50,6 +62,7 @@ rock.addEventListener("click", () => {
   const playerChoice = "rock";
   const computerChoice = getComputerChoice();
   console.log("pc=", playerChoice, "cc=", computerChoice);
+  updateUI(computerChoice, playerChoice);
 });
 
 const paper = document.querySelector("#paper");
@@ -57,6 +70,7 @@ paper.addEventListener("click", () => {
   const playerChoice = "paper";
   const computerChoice = getComputerChoice();
   console.log("pc=", playerChoice, "cc=", computerChoice);
+  updateUI(computerChoice, playerChoice);
 });
 
 const scissors = document.querySelector("#scissors");
@@ -64,6 +78,7 @@ scissors.addEventListener("click", () => {
   const playerChoice = "scissors";
   const computerChoice = getComputerChoice();
   console.log("pc=", playerChoice, "cc=", computerChoice);
+  updateUI(computerChoice, playerChoice);
 });
 
 /*
